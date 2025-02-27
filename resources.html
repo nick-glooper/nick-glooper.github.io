@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources | husian</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --background: #121212;
+            --surface: #1e1e1e;
+            --primary: #2962ff;
+            --primary-light: #768fff;
+            --text-primary: rgba(255, 255, 255, 0.87);
+            --text-secondary: rgba(255, 255, 255, 0.6);
+            --text-tertiary: rgba(255, 255, 255, 0.38);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto Slab', serif;
+            background-color: var(--background);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding-top: 80px;
+        }
+
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--background);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            padding-left: 20px;
+        }
+
+        .logo-circle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            border: 2px solid var(--text-primary);
+            border-radius: 50%;
+            margin-right: 12px;
+        }
+
+        .logo-letter {
+            font-family: 'Roboto Slab', serif;
+            font-weight: 900;
+            font-size: 19.8px;
+            color: var(--text-primary);
+            position: relative;
+            left: 5%;
+        }
+
+        .logo-text {
+            font-size: 29px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav li {
+            margin-left: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 400;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .page-header {
+            padding: 60px 0;
+            background-color: var(--surface);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 48px;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            font-weight: 700;
+        }
+
+        h1 span {
+            color: var(--primary);
+        }
+
+        h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+            font-weight: 500;
+        }
+
+        h3 {
+            font-size: 24px;
+            margin-bottom: 16px;
+            font-weight: 500;
+            color: var(--primary);
+        }
+
+        p {
+            margin-bottom: 24px;
+            font-size: 18px;
+            max-width: 800px;
+        }
+
+        .lead {
+            font-size: 24px;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .resources-section {
+            margin-bottom: 100px;
+        }
+
+        .resources-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .resource-card {
+            background-color: var(--surface);
+            padding: 30px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .resource-card::before {
+            content: "";
+            position: absolute;
+            top: 20px;
+            left: 0;
+            width: 4px;
+            height: 40px;
+            background-color: var(--primary);
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .resource-title {
+            font-size: 20px;
+            margin-bottom: 16px;
+            font-weight: 500;
+            color: var(--primary);
+        }
+
+        .resource-date {
+            display: block;
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .resource-content {
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        .resource-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .resource-link:hover {
+            color: var(--primary-light);
+        }
+
+        .featured-resource {
+            background-color: var(--surface);
+            padding: 40px;
+            border-radius: 4px;
+            margin-bottom: 60px;
+            position: relative;
+            border-left: 4px solid var(--primary);
+        }
+
+        .featured-resource .resource-title {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .featured-resource .resource-content {
+            font-size: 18px;
+        }
+
+        .procurement-act-section {
+            background-color: rgba(41, 98, 255, 0.1);
+            border-radius: 4px;
+            padding: 40px;
+            margin: 60px 0;
+        }
+
+        .icon-container {
+            margin-bottom: 20px;
+        }
+
+        .icon {
+            width: 40px;
+            height: 40px;
+            stroke: var(--primary);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-light);
+        }
+
+        footer {
+            background-color: var(--background);
+            padding: 60px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+        }
+
+        .footer-heading {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 60px;
+            color: var(--text-tertiary);
+            font-size: 14px;
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                padding-top: 60px;
+            }
+
+            .header-container {
+                padding: 15px 0;
+            }
+
+            .logo-text {
+                font-size: 24px;
+            }
+            
+            .logo-circle {
+                width: 34px;
+                height: 34px;
+            }
+            
+            .logo-letter {
+                font-size: 17px;
+            }
+
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background-color: var(--background);
+                flex-direction: column;
+                padding: 20px;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            nav.active ul {
+                display: flex;
+            }
+
+            nav li {
+                margin: 15px 0;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            h1 {
+                font-size: 36px;
+            }
+
+            h2 {
+                font-size: 28px;
+            }
+
+            .lead {
+                font-size: 18px;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .featured-resource {
+                padding: 30px;
+            }
+
+            .procurement-act-section {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <span class="logo-circle"><span class="logo-letter">h</span></span>
+                <span class="logo-text">husian</span>
+            </a>
+            <button class="mobile-menu-toggle">☰</button>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="resources.html" class="active">Resources</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>Resource <span>Center</span></h1>
+            <p class="lead">Insights, guides, and tools to help you transform your procurement and commercial operations through AI implementation.</p>
+        </div>
+    </div>
+
+    <main>
+        <section>
+            <div class="container">
+                <div class="featured-resource">
+                    <div class="icon-container">
+                        <svg class="icon" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                    </div>
+                    <h3 class="resource-title">UK Procurement Act 2024: Implications and Opportunities</h3>
+                    <span class="resource-date">February 2025</span>
+                    <p class="resource-content">Our comprehensive analysis of the new UK Procurement Act and its implications for public sector organizations. This guide covers key changes, implementation timelines, and strategies for leveraging AI to ensure compliance while enhancing procurement efficiency.</p>
+                    <a href="#" class="btn">Download Guide</a>
+                </div>
+                
+                <div class="resources-section" id="articles">
+                    <h2>Articles & Insights</h2>
+                    <p>Expert perspectives on procurement innovation, AI implementation, and commercial excellence in the public sector.</p>
+                    
+                    <div class="resource-grid">
+                        <div class="resource-card">
+                            <h3 class="resource-title">AI-Powered Risk Assessment in Public Procurement</h3>
+                            <span class="resource-date">February 2025</span>
+                            <p class="resource-content">How AI is transforming supplier risk management in public sector procurement, enabling real-time monitoring and proactive mitigation strategies.</p>
+                            <a href="#" class="resource-link">Read Article →</a>
+                        </div>
+                        
+                        <div class="resource-card">
+                            <h3 class="resource-title">Implementing Dynamic Markets: A Practical Guide</h3>
+                            <span class="resource-date">January 2025</span>
+                            <p class="resource-content">Step-by-step guidance on establishing and managing dynamic purchasing systems under the new procurement regulations.</p>
+                            <a href="#" class="resource-link">Read Article →</a>
+                        </div>
+                        
+                        <div class="resource-card">
+                            <h3 class="resource-title">AI Ethics in Public Sector Procurement</h3>
+                            <span class="resource-date">December 2024</span>
+                            <p class="resource-content">Navigating the ethical considerations of AI implementation in public procurement processes while maintaining transparency and fairness.</p>
+                            <a href="#" class="resource-link">Read Article →</a>
+                        </div>
+                        
+                        <div class="resource-card">
+                            <h3 class="resource-title">NATO Procurement: Key Considerations</h3>
+                            <span class="resource-date">November 2024</span>
+                            <p class="resource-content">Understanding the unique requirements and processes of NATO procurement and how organizations can position themselves for success.</p>
+                            <a href="#" class="resource-link">Read Article →</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="resources-section" id="guides">
+                    <h2>Guides & Toolkits</h2>
+                    <p>Practical resources to help you implement AI in your procurement and commercial operations.</p>
+                    
+                    <div class="resource-grid">
+                        <div class="resource-card">
+                            <h3 class="resource-title">AI Readiness Assessment Toolkit</h3>
+                            <span class="resource-date">February 2025</span>
+                            <p class="resource-content">A comprehensive toolkit for assessing your organization's readiness for AI implementation in procurement and commercial processes.</p>
+                            <a href="#" class="resource-link">Download Toolkit →</a>
+                        </div>
+                        
+                        <div class="resource-card">
+                            <h3 class="resource-title">Supply Chain Risk Monitoring Framework</h3>
+                            <span class="resource-date">January 2025</span>
+                            <p class="resource-content">A structured approach to implementing AI-powered risk monitoring across your supplier ecosystem.</p>
+                            <a href="#" class="resource-link">Download Framework →</a>
+                        </div>
+                        
+                        <div class="resource-card">
+                            <h3 class="resource-title">Commercial Process Optimization Playbook</h3>
+                            <span class="resource-date">December 2024</span>
+                            <p class="resource-content">Practical strategies for identifying and implementing AI-enabled improvements in commercial processes.</p>
+                            <a href="#" class="resource-link">Download Playbook →</a>
+                        </div>
+                        
+                        <div class="resource-card">
+                            <h3 class="resource-title">AI Implementation ROI Calculator</h3>
+                            <span class="resource-date">November 2024</span>
+                            <p class="resource-content">Interactive tool for calculating the potential return on investment from AI implementation in procurement processes.</p>
+                            <a href="#" class="resource-link">Access Calculator →</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="resources-section" id="procurement-act">
+                    <h2>UK Procurement Act Resource Center</h2>
+                    <p>Specialized resources to help your organization navigate the changes introduced by the new Procurement Act and leverage AI to ensure compliance.</p>
+                    
+                    <div class="procurement-act-section">
+                        <div class="icon-container">
+                            <svg class="icon" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"></path>
+                                <path d="M9 12h6"></path>
+                                <path d="M12 9v6"></path>
+                            </svg>
+                        </div>
+                        <h3>Key Resources:</h3>
+                        <ul style="list-style: none; margin-bottom: 30px;">
+                            <li style="margin-bottom: 15px;">
+                                <a href="#" class="resource-link" style="font-size: 18px;">Procurement Act 2024: Executive Summary →</a>
+                            </li>
+                            <li style="margin-bottom: 15px;">
+                                <a href="#" class="resource-link" style="font-size: 18px;">Compliance Checklist for Contracting Authorities →</a>
+                            </li>
+                            <li style="margin-bottom: 15px;">
+                                <a href="#" class="resource-link" style="font-size: 18px;">Dynamic Markets Implementation Guide →</a>
+                            </li>
+                            <li style="margin-bottom: 15px;">
+                                <a href="#" class="resource-link" style="font-size: 18px;">AI Opportunities in the New Regulatory Framework →</a>
+                            </li>
+                            <li style="margin-bottom: 15px;">
+                                <a href="#" class="resource-link" style="font-size: 18px;">Procurement Act Webinar Series →</a>
+                            </li>
+                        </ul>
+                        
+                        <a href="contact.html" class="btn">Request Personalized Assessment</a>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4 class="footer-heading">husian</h4>
+                    <p>Specialized in AI-enabled procurement and commercial management for public sector organizations.</p>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html#supply-chain">Supply Chain Risk Assessment</a></li>
+                        <li><a href="services.html#ai-procurement">AI in Procurement</a></li>
+                        <li><a href="services.html#process-optimization">Commercial Process Optimization</a></li>
+                        <li><a href="services.html#dynamic-markets">Dynamic Markets Strategy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="resources.html#articles">Articles</a></li>
+                        <li><a href="resources.html#guides">Guides</a></li>
+                        <li><a href="resources.html#procurement-act">Procurement Act</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="contact.html">Contact Form</a></li>
+                        <li><a href="mailto:info@husian.com">info@husian.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 husian. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            document.querySelector('nav').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
