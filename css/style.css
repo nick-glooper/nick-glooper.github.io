@@ -3,6 +3,7 @@
     --surface: #1e1e1e;
     --primary: #2962ff;
     --primary-light: #768fff;
+    --primary-dark: #0039cb;
     --text-primary: rgba(255, 255, 255, 0.87);
     --text-secondary: rgba(255, 255, 255, 0.6);
     --text-tertiary: rgba(255, 255, 255, 0.38);
@@ -484,6 +485,30 @@ footer {
     flex-direction: column;
 }
 
+.contact-form h2 {
+    margin-top: 0;
+    margin-bottom: 25px;
+    color: var(--text-primary);
+    font-size: 24px;
+}
+
+.contact-form .icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    margin-bottom: 15px;
+    background-color: var(--primary);
+    border-radius: 50%;
+}
+
+.contact-form .icon {
+    width: 32px;
+    height: 32px;
+    stroke: white;
+}
+
 .form-group {
     margin-bottom: 20px;
 }
@@ -506,11 +531,36 @@ footer {
     color: var(--text-primary);
     font-family: 'Roboto Slab', serif;
     font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--primary);
+    outline: none;
 }
 
 .form-group textarea {
     min-height: 150px;
     resize: vertical;
+}
+
+.contact-form .btn {
+    margin-top: 10px;
+    align-self: flex-start;
+    padding: 12px 24px;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form .btn:hover {
+    background-color: var(--primary-dark);
 }
 
 .contact-info {
@@ -519,12 +569,100 @@ footer {
 
 .contact-feature {
     margin-bottom: 40px;
+    background-color: var(--surface);
+    border-radius: 4px;
+    padding: 25px;
+}
+
+.contact-feature h3 {
+    margin-top: 0;
+    color: var(--text-primary);
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.contact-feature p {
+    margin-bottom: 0;
+    color: var(--text-secondary);
+}
+
+.contact-feature a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-feature a:hover {
+    color: var(--primary-light);
+    text-decoration: underline;
+}
+
+.contact-feature .icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    margin-bottom: 15px;
+    background-color: var(--primary);
+    border-radius: 50%;
+}
+
+.contact-feature .icon {
+    width: 32px;
+    height: 32px;
+    stroke: white;
 }
 
 .chatbot-placeholder {
     background-color: var(--surface);
     border-radius: 4px;
     padding: 30px;
+    color: var(--text-secondary);
+}
+
+.chatbot-placeholder h3 {
+    margin-top: 0;
+    color: var(--text-primary);
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.chatbot-placeholder .icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    margin-bottom: 15px;
+    background-color: var(--primary);
+    border-radius: 50%;
+}
+
+.chatbot-placeholder .icon {
+    width: 32px;
+    height: 32px;
+    stroke: white;
+}
+
+#chatbot-messages {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#chatbot-messages p {
+    margin-bottom: 15px;
+    color: var(--text-secondary);
+}
+
+#chatbot-messages ul {
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+#chatbot-messages li {
+    margin-bottom: 10px;
     color: var(--text-secondary);
 }
 
