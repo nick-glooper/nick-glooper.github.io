@@ -22,6 +22,7 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="services.html">Services</a></li>
                     <li><a href="resources.html">Resources</a></li>
+                    <li><a href="news.html">News</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="contact.html" class="active">Contact</a></li>
                 </ul>
@@ -121,8 +122,19 @@
                                     <option value="process-optimization">Commercial Process Optimization</option>
                                     <option value="dynamic-markets">Dynamic Markets Strategy</option>
                                     <option value="procurement-act">Procurement Act Compliance</option>
-                                    <option value="other">Other (please specify)</option>
+                                    <option value="nato-procurement">NATO Procurement Readiness</option>
+                                    <option value="professional-services">Professional Services</option>
+                                    <option value="ai-ethics">AI Ethics in Procurement</option>
+                                    <option value="supplier-risk">Supplier Risk Management</option>
+                                    <option value="procurement-innovation">Procurement Innovation</option>
+                                    <option value="contract-management">Contract Management</option>
+                                    <option value="other">Other</option>
                                 </select>
+                            </div>
+                            
+                            <div class="form-group" id="other-service-group" style="display: none;">
+                                <label for="other-service">Please specify your area of interest *</label>
+                                <input type="text" id="other-service" name="other-service">
                             </div>
                             
                             <div class="form-group">
@@ -155,11 +167,10 @@
 
     <footer>
         <div class="container">
+            <div class="footer-tagline">
+                <span class="tagline-brand">husian</span> — Specialized in AI-enabled procurement and commercial management for public sector organizations.
+            </div>
             <div class="footer-content">
-                <div class="footer-col">
-                    <h4 class="footer-heading">husian</h4>
-                    <p>Specialized in AI-enabled procurement and commercial management for public sector organizations.</p>
-                </div>
                 <div class="footer-col">
                     <h4 class="footer-heading">Services</h4>
                     <ul class="footer-links">
@@ -175,6 +186,25 @@
                         <li><a href="resources.html#articles">Articles</a></li>
                         <li><a href="resources.html#guides">Guides</a></li>
                         <li><a href="resources.html#procurement-act">Procurement Act</a></li>
+                        <li><a href="resources.html#webinars">Webinars</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">News</h4>
+                    <ul class="footer-links">
+                        <li><a href="news.html#latest">Latest Updates</a></li>
+                        <li><a href="news.html#press">Press Releases</a></li>
+                        <li><a href="news.html#insights">Industry Insights</a></li>
+                        <li><a href="news.html#events">Events</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">About</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html#company">Our Company</a></li>
+                        <li><a href="about.html#team">Our Team</a></li>
+                        <li><a href="about.html#values">Our Values</a></li>
+                        <li><a href="about.html#careers">Careers</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -195,6 +225,27 @@
         // Mobile menu toggle
         document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
             document.querySelector('nav').classList.toggle('active');
+        });
+        
+        // Handle "Other" option in dropdown
+        document.getElementById('service').addEventListener('change', function() {
+            const otherServiceGroup = document.getElementById('other-service-group');
+            const otherServiceInput = document.getElementById('other-service');
+            
+            if (this.value === 'other') {
+                otherServiceGroup.style.display = 'block';
+                setTimeout(() => {
+                    otherServiceGroup.classList.add('show');
+                }, 10);
+                otherServiceInput.setAttribute('required', 'required');
+            } else {
+                otherServiceGroup.classList.remove('show');
+                setTimeout(() => {
+                    otherServiceGroup.style.display = 'none';
+                }, 300);
+                otherServiceInput.removeAttribute('required');
+                otherServiceInput.value = '';
+            }
         });
         
         // Form submission handling

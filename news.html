@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>News Archive | husian</title>
+    <title>News | husian</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;700;900&display=swap" rel="stylesheet">
@@ -22,6 +22,7 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="services.html">Services</a></li>
                     <li><a href="resources.html">Resources</a></li>
+                    <li><a href="news.html" class="active">News</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
@@ -29,71 +30,43 @@
         </div>
     </header>
 
-    <div class="page-header">
-        <div class="container">
-            <h1>News <span>Archive</span></h1>
-            <p class="lead">Stay updated with the latest developments from husian and insights into AI-enabled procurement and commercial management.</p>
-        </div>
-    </div>
-
     <main>
-        <section>
+        <section class="page-header">
             <div class="container">
-                <div class="icon-container">
-                    <svg class="icon" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                        <line x1="16" y1="2" x2="16" y2="6"></line>
-                        <line x1="8" y1="2" x2="8" y2="6"></line>
-                        <line x1="3" y1="10" x2="21" y2="10"></line>
-                    </svg>
+                <h1>News</h1>
+                <p class="lead">Stay updated with the latest developments in AI-enabled procurement and commercial management.</p>
+            </div>
+        </section>
+
+        <section class="news-grid">
+            <div class="container">
+                <div class="year-divider">
+                    <h2>2025</h2>
                 </div>
                 
-                <div class="news-grid">
-                    <h2 class="year-divider">2025</h2>
-                    
-                    <div class="news-item">
-                        <h3>AI-Powered Procurement Risk Assessment Tool Launch</h3>
-                        <p class="news-content">Husian launches new AI-powered procurement risk assessment tool for public sector organizations, enabling real-time monitoring of supplier financial health and compliance status. This proprietary solution integrates with existing procurement systems to provide early warning indicators and mitigation recommendations.</p>
-                        <span class="news-date">26th February 2025</span>
-                    </div>
-                    
-                    <div class="news-item">
-                        <h3>UK Procurement Act Implementation Analysis</h3>
-                        <p class="news-content">Our analysis of the new UK Procurement Act implementation shows that 73% of public sector organizations are underprepared for the transition. Our new compliance guide provides a structured approach to meeting the regulatory requirements while leveraging AI to streamline processes.</p>
-                        <span class="news-date">14th February 2025</span>
-                    </div>
-                    
-                    <div class="news-item">
-                        <h3>Strategic AI Partnership Announcement</h3>
-                        <p class="news-content">Husian announces partnership with leading AI platform provider to enhance our Dynamic Markets Strategy service. This collaboration enables us to offer advanced supplier ecosystem management capabilities with improved intelligence gathering and decision support.</p>
-                        <span class="news-date">5th February 2025</span>
-                    </div>
-                    
-                    <div class="news-item">
-                        <h3>Government Department Success Story</h3>
-                        <p class="news-content">Our recent work with a central government department resulted in a 42% reduction in procurement cycle times through targeted AI implementation. The case study highlighting key learnings and implementation approach is now available in our resources section.</p>
-                        <span class="news-date">22nd January 2025</span>
-                    </div>
-                    
-                    <div class="news-item">
-                        <h3>Public Sector Procurement Innovation Conference</h3>
-                        <p class="news-content">Husian's founder will be speaking at the upcoming Public Sector Procurement Innovation Conference on "AI Integration in Commercial Management: Balancing Efficiency and Compliance" on March 15th in London.</p>
-                        <span class="news-date">8th January 2025</span>
-                    </div>
-                    
-                    <h2 class="year-divider">2024</h2>
-                    
-                    <div class="news-item">
-                        <h3>Dynamic Markets Analysis for Complex Supply Chains</h3>
-                        <p class="news-content">As organizations prepare for the new procurement regulations, our analysis shows that Dynamic Markets offer significant advantages for complex supply chains. Our new guide explores implementation strategies and best practices.</p>
-                        <span class="news-date">12th December 2024</span>
-                    </div>
-                    
-                    <div class="news-item">
-                        <h3>EU Procurement Consulting Expansion</h3>
-                        <p class="news-content">Husian celebrates our expansion into EU procurement consulting, leveraging our NATO experience to help organizations navigate complex defense and security procurement processes while implementing AI-enhanced workflows.</p>
-                        <span class="news-date">27th November 2024</span>
-                    </div>
+                <div class="news-item" id="risk-assessment-tool">
+                    <h3>Husian Launches AI-Powered Risk Assessment Tool for Public Sector Procurement</h3>
+                    <p class="news-content">Our new AI-powered procurement risk assessment tool enables real-time monitoring of supplier financial health and compliance status. This proprietary solution integrates with existing procurement systems to provide early warning indicators and mitigation recommendations.</p>
+                    <span class="news-date">26th February 2025</span>
+                    <a href="#" class="btn">See the Full Article</a>
+                </div>
+
+                <div class="year-divider">
+                    <h2>2024</h2>
+                </div>
+
+                <div class="news-item">
+                    <h3>Husian Releases Comprehensive Framework for AI Implementation in Public Sector Procurement</h3>
+                    <p class="news-content">Our new framework provides a structured approach for public sector organizations to implement AI in their procurement processes. The guide covers key considerations for maintaining compliance while improving efficiency through AI integration.</p>
+                    <span class="news-date">15th December 2024</span>
+                    <a href="#" class="btn">See the Full Article</a>
+                </div>
+
+                <div class="news-item">
+                    <h3>Husian Receives Industry Recognition for Supply Chain Risk Management Innovation</h3>
+                    <p class="news-content">We're proud to announce that Husian has been recognized for our innovative approach to supply chain risk management. This award highlights our commitment to advancing procurement technology and improving supply chain resilience.</p>
+                    <span class="news-date">8th November 2024</span>
+                    <a href="#" class="btn">See the Full Article</a>
                 </div>
             </div>
         </section>
@@ -101,11 +74,10 @@
 
     <footer>
         <div class="container">
+            <div class="footer-tagline">
+                <span class="tagline-brand">husian</span> — Specialized in AI-enabled procurement and commercial management for public sector organizations.
+            </div>
             <div class="footer-content">
-                <div class="footer-col">
-                    <h4 class="footer-heading">husian</h4>
-                    <p>Specialized in AI-enabled procurement and commercial management for public sector organizations.</p>
-                </div>
                 <div class="footer-col">
                     <h4 class="footer-heading">Services</h4>
                     <ul class="footer-links">
@@ -121,6 +93,25 @@
                         <li><a href="resources.html#articles">Articles</a></li>
                         <li><a href="resources.html#guides">Guides</a></li>
                         <li><a href="resources.html#procurement-act">Procurement Act</a></li>
+                        <li><a href="resources.html#webinars">Webinars</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">News</h4>
+                    <ul class="footer-links">
+                        <li><a href="news.html#latest">Latest Updates</a></li>
+                        <li><a href="news.html#press">Press Releases</a></li>
+                        <li><a href="news.html#insights">Industry Insights</a></li>
+                        <li><a href="news.html#events">Events</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">About</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html#company">Our Company</a></li>
+                        <li><a href="about.html#team">Our Team</a></li>
+                        <li><a href="about.html#values">Our Values</a></li>
+                        <li><a href="about.html#careers">Careers</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">

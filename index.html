@@ -16,12 +16,13 @@
                 <span class="logo-circle"><span class="logo-letter">h</span></span>
                 <span class="logo-text">husian</span>
             </a>
-            <button class="mobile-menu-toggle">☰</button>
+            <button class="mobile-menu-toggle" aria-expanded="false" aria-label="Toggle navigation menu">☰</button>
             <nav>
                 <ul>
                     <li><a href="index.html" class="active">Home</a></li>
                     <li><a href="services.html">Services</a></li>
                     <li><a href="resources.html">Resources</a></li>
+                    <li><a href="news.html">News</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
@@ -87,13 +88,14 @@
 
         <section class="news">
             <div class="container">
-                <h2>Latest Updates</h2>
+                <h2>News</h2>
                 <div class="news-item">
-                    <h3>New Risk Assessment Tool Launch</h3>
-                    <p class="news-content">Husian launches new AI-powered procurement risk assessment tool for public sector organizations, enabling real-time monitoring of supplier financial health and compliance status. This proprietary solution integrates with existing procurement systems to provide early warning indicators and mitigation recommendations.</p>
+                    <h3>Husian Launches AI-Powered Risk Assessment Tool for Public Sector Procurement</h3>
+                    <p class="news-content">Our new AI-powered procurement risk assessment tool enables real-time monitoring of supplier financial health and compliance status. This proprietary solution integrates with existing procurement systems to provide early warning indicators and mitigation recommendations.</p>
                     <span class="news-date">26th February 2025</span>
+                    <a href="news.html#risk-assessment-tool" class="btn">See the Full Article</a>
                 </div>
-                <a href="news.html" class="news-archive-link">View All Updates →</a>
+                <a href="news.html" class="news-archive-link">See all our News →</a>
             </div>
         </section>
 
@@ -108,11 +110,10 @@
 
     <footer>
         <div class="container">
+            <div class="footer-tagline">
+                <span class="tagline-brand">husian</span> — Specialized in AI-enabled procurement and commercial management for public sector organizations.
+            </div>
             <div class="footer-content">
-                <div class="footer-col">
-                    <h4 class="footer-heading">husian</h4>
-                    <p>Specialized in AI-enabled procurement and commercial management for public sector organizations.</p>
-                </div>
                 <div class="footer-col">
                     <h4 class="footer-heading">Services</h4>
                     <ul class="footer-links">
@@ -128,6 +129,25 @@
                         <li><a href="resources.html#articles">Articles</a></li>
                         <li><a href="resources.html#guides">Guides</a></li>
                         <li><a href="resources.html#procurement-act">Procurement Act</a></li>
+                        <li><a href="resources.html#webinars">Webinars</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">News</h4>
+                    <ul class="footer-links">
+                        <li><a href="news.html#latest">Latest Updates</a></li>
+                        <li><a href="news.html#press">Press Releases</a></li>
+                        <li><a href="news.html#insights">Industry Insights</a></li>
+                        <li><a href="news.html#events">Events</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">About</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html#company">Our Company</a></li>
+                        <li><a href="about.html#team">Our Team</a></li>
+                        <li><a href="about.html#values">Our Values</a></li>
+                        <li><a href="about.html#careers">Careers</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -145,9 +165,23 @@
     </footer>
 
     <script>
-        // Mobile menu toggle
-        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
-            document.querySelector('nav').classList.toggle('active');
+        // Mobile menu toggle with improved functionality
+        const menuToggle = document.querySelector('.mobile-menu-toggle');
+        const nav = document.querySelector('nav');
+        
+        menuToggle.addEventListener('click', function() {
+            nav.classList.toggle('active');
+            // Toggle aria-expanded for accessibility
+            const expanded = nav.classList.contains('active');
+            menuToggle.setAttribute('aria-expanded', expanded);
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!nav.contains(event.target) && !menuToggle.contains(event.target) && nav.classList.contains('active')) {
+                nav.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+            }
         });
     </script>
 </body>
