@@ -1,0 +1,40 @@
+Title: Your Article Title Here (Maximum 280 characters)
+
+Summary: This is where you add your article summary. The summary should be concise and give readers a clear idea of what the article is about. Keep it under 100 words. This will appear on the home page and in the news listing.
+
+Article: This is the main content of your article. It should be between 500 and 2000 words.
+
+The article content should be well-structured with proper paragraphs. Separate paragraphs with blank lines.
+
+You can format your article with basic formatting:
+
+For a new paragraph, simply leave a blank line between paragraphs.
+
+For emphasis, you can use *asterisks* or _underscores_, and the system will convert these to HTML formatting.
+
+For headings within your article, you can use the following format:
+## Secondary Heading
+### Tertiary Heading
+
+For lists, you can use the following formats:
+
+1. First item
+2. Second item
+3. Third item
+
+Or for unordered lists:
+
+- First bullet point
+- Second bullet point
+- Third bullet point
+
+For blockquotes, use the > symbol:
+
+> This is a blockquote that will be formatted specially in the final article.
+
+When your article is processed, it will be automatically added to the website:
+1. The title and summary will appear in the Latest News section on the home page
+2. The article will be added to the News page
+3. A dedicated page will be created for the full article content
+
+Note: Images are not supported in the automatic upload. If you need to include images, please contact the web administrator. 

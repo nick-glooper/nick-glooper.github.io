@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Husian News Article Uploader</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #3182ce;
+            --primary-dark: #2c5282;
+            --dark-blue: #1a365d;
+            --light-blue: #ebf8ff;
+            --gray: #718096;
+            --light-gray: #f7f9fc;
+            --border-color: #e2e8f0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto Slab', serif;
+            line-height: 1.6;
+            color: #4a5568;
+            background-color: #f7f9fc;
+            padding: 2rem;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        header {
+            background-color: var(--dark-blue);
+            color: white;
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        h1 span {
+            color: var(--primary-color);
+        }
+        
+        .lead {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        main {
+            padding: 2rem;
+        }
+        
+        .card {
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        h2 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--dark-blue);
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        .file-upload {
+            margin-bottom: 1.5rem;
+        }
+        
+        .file-list {
+            margin-top: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .file-list-header {
+            background-color: var(--light-gray);
+            padding: 0.75rem 1rem;
+            font-weight: 500;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .file-list-item {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .file-list-item:last-child {
+            border-bottom: none;
+        }
+        
+        .file-name {
+            font-weight: 500;
+        }
+        
+        .file-date {
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.6rem 1.5rem;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-family: 'Roboto Slab', serif;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            text-decoration: none;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .btn:disabled {
+            background-color: var(--gray);
+            cursor: not-allowed;
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--light-blue);
+        }
+        
+        .btn-small {
+            padding: 0.3rem 0.75rem;
+            font-size: 0.85rem;
+        }
+        
+        .drop-area {
+            border: 2px dashed var(--border-color);
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            border-radius: 4px;
+            color: var(--gray);
+            transition: all 0.2s ease;
+        }
+        
+        .drop-area.dragover {
+            border-color: var(--primary-color);
+            background-color: var(--light-blue);
+        }
+        
+        .drop-area p {
+            margin-bottom: 0.5rem;
+        }
+        
+        .status-area {
+            display: none;
+            margin-top: 1.5rem;
+            padding: 1rem;
+            border-radius: 4px;
+        }
+        
+        .status-area.success {
+            display: block;
+            background-color: #f0fff4;
+            border: 1px solid #68d391;
+            color: #276749;
+        }
+        
+        .status-area.error {
+            display: block;
+            background-color: #fff5f5;
+            border: 1px solid #fc8181;
+            color: #c53030;
+        }
+        
+        .progress-area {
+            display: none;
+            padding: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            margin-top: 1rem;
+        }
+        
+        .progress-title {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+        
+        .progress-bar-container {
+            height: 8px;
+            background-color: var(--light-gray);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background-color: var(--primary-color);
+            width: 0;
+            transition: width 0.3s ease;
+        }
+        
+        .folder-section {
+            margin-top: 2rem;
+        }
+        
+        .folder-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary-color);
+            text-decoration: none;
+            margin-bottom: 1rem;
+        }
+        
+        .folder-link:hover {
+            text-decoration: underline;
+        }
+        
+        .folder-icon {
+            margin-right: 0.5rem;
+            height: 20px;
+            width: 20px;
+        }
+        
+        /* Icon SVG Styles */
+        .icon {
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        
+        .instructions {
+            background-color: var(--light-gray);
+            padding: 1rem;
+            border-radius: 4px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .instructions h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            color: var(--dark-blue);
+        }
+        
+        .instructions ol {
+            padding-left: 1.5rem;
+        }
+        
+        .instructions li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .file-input {
+            display: none;
+        }
+        
+        .file-input-label {
+            display: inline-block;
+            cursor: pointer;
+            margin-bottom: 0.5rem;
+        }
+        
+        .preview-area {
+            display: none;
+            margin-top: 1.5rem;
+            padding: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+        }
+        
+        .preview-title {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+        
+        .preview-content {
+            white-space: pre-wrap;
+            font-family: monospace;
+            font-size: 0.9rem;
+            padding: 1rem;
+            background-color: var(--light-gray);
+            border-radius: 4px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            
+            .container {
+                border-radius: 6px;
+            }
+            
+            main {
+                padding: 1.5rem;
+            }
+            
+            .card {
+                padding: 1rem;
+            }
+            
+            .drop-area {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Husian News <span>Article Uploader</span></h1>
+            <p class="lead">Upload and process news articles for the Husian website without using the command line.</p>
+        </header>
+        
+        <main>
+            <div class="instructions">
+                <h3>How to use this tool:</h3>
+                <ol>
+                    <li>Create your article file following the required format (Title, Summary, Article).</li>
+                    <li>Save the file in the "News_Articles" folder or select it using the uploader below.</li>
+                    <li>Click "Process Article" to update the website with your content.</li>
+                </ol>
+            </div>
+            
+            <div class="card">
+                <h2>Upload Article</h2>
+                <p>Select an article file from your computer or drag and drop it below.</p>
+                
+                <div id="drop-area" class="drop-area">
+                    <p>Drag and drop your article file here</p>
+                    <p>or</p>
+                    <label for="file-input" class="btn">Select File</label>
+                    <input type="file" id="file-input" class="file-input" accept=".txt">
+                </div>
+                
+                <div id="file-details" style="display: none;">
+                    <p>Selected file: <span id="selected-filename"></span></p>
+                    <div>
+                        <button id="process-btn" class="btn">Process Article</button>
+                        <button id="preview-btn" class="btn btn-secondary">Preview</button>
+                    </div>
+                </div>
+                
+                <div id="preview-area" class="preview-area">
+                    <div class="preview-title">File Preview:</div>
+                    <pre id="preview-content" class="preview-content"></pre>
+                    <button id="close-preview-btn" class="btn btn-secondary btn-small">Close Preview</button>
+                </div>
+                
+                <div id="progress-area" class="progress-area">
+                    <div class="progress-title">Processing article...</div>
+                    <div class="progress-bar-container">
+                        <div id="progress-bar" class="progress-bar"></div>
+                    </div>
+                    <div id="progress-status">Initializing...</div>
+                </div>
+                
+                <div id="status-area" class="status-area">
+                    <div id="status-message"></div>
+                </div>
+            </div>
+            
+            <div class="folder-section">
+                <h2>News Articles Folder</h2>
+                <p>Access your news article files directly:</p>
+                <a href="file:///C:/Development/nick-glooper.github.io/News_Articles" class="folder-link">
+                    <svg class="folder-icon icon" viewBox="0 0 24 24">
+                        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                    Open News_Articles folder
+                </a>
+                
+                <div id="folder-files" class="file-list">
+                    <div class="file-list-header">Recent Articles</div>
+                    <div id="file-list-content">
+                        <!-- Files will be listed here by JavaScript -->
+                        <div class="file-list-item">
+                            <span class="file-name">Loading files...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script>
+        // DOM Elements
+        const dropArea = document.getElementById('drop-area');
+        const fileInput = document.getElementById('file-input');
+        const fileDetails = document.getElementById('file-details');
+        const selectedFilename = document.getElementById('selected-filename');
+        const processBtn = document.getElementById('process-btn');
+        const previewBtn = document.getElementById('preview-btn');
+        const previewArea = document.getElementById('preview-area');
+        const previewContent = document.getElementById('preview-content');
+        const closePreviewBtn = document.getElementById('close-preview-btn');
+        const progressArea = document.getElementById('progress-area');
+        const progressBar = document.getElementById('progress-bar');
+        const progressStatus = document.getElementById('progress-status');
+        const statusArea = document.getElementById('status-area');
+        const statusMessage = document.getElementById('status-message');
+        const fileListContent = document.getElementById('file-list-content');
+        
+        // Selected file
+        let selectedFile = null;
+        
+        // Drag and drop functionality
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            dropArea.addEventListener(eventName, preventDefaults, false);
+        });
+        
+        function preventDefaults(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+        
+        ['dragenter', 'dragover'].forEach(eventName => {
+            dropArea.addEventListener(eventName, highlight, false);
+        });
+        
+        ['dragleave', 'drop'].forEach(eventName => {
+            dropArea.addEventListener(eventName, unhighlight, false);
+        });
+        
+        function highlight() {
+            dropArea.classList.add('dragover');
+        }
+        
+        function unhighlight() {
+            dropArea.classList.remove('dragover');
+        }
+        
+        // Handle dropped files
+        dropArea.addEventListener('drop', handleDrop, false);
+        
+        function handleDrop(e) {
+            const dt = e.dataTransfer;
+            const files = dt.files;
+            
+            if (files.length > 0) {
+                handleFiles(files);
+            }
+        }
+        
+        // Handle file input change
+        fileInput.addEventListener('change', function() {
+            if (this.files.length > 0) {
+                handleFiles(this.files);
+            }
+        });
+        
+        // Process selected files
+        function handleFiles(files) {
+            if (files.length === 0) return;
+            
+            // Only take the first file
+            selectedFile = files[0];
+            
+            // Update UI
+            selectedFilename.textContent = selectedFile.name;
+            fileDetails.style.display = 'block';
+            statusArea.style.display = 'none';
+            previewArea.style.display = 'none';
+        }
+        
+        // Preview button handler
+        previewBtn.addEventListener('click', function() {
+            if (!selectedFile) return;
+            
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                previewContent.textContent = e.target.result;
+                previewArea.style.display = 'block';
+            };
+            reader.readAsText(selectedFile);
+        });
+        
+        // Close preview button handler
+        closePreviewBtn.addEventListener('click', function() {
+            previewArea.style.display = 'none';
+        });
+        
+        // Process button handler
+        processBtn.addEventListener('click', async function() {
+            if (!selectedFile) return;
+            
+            // Show progress
+            progressArea.style.display = 'block';
+            statusArea.style.display = 'none';
+            processBtn.disabled = true;
+            previewBtn.disabled = true;
+            
+            try {
+                // Update progress
+                await simulateProcessing('Reading article file...', 20);
+                
+                // Create a FormData object to send the file
+                const formData = new FormData();
+                formData.append('file', selectedFile);
+                
+                // Send the file to the server for processing
+                await simulateProcessing('Uploading file...', 40);
+                
+                const response = await fetch('/api/upload', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                await simulateProcessing('Processing document...', 60);
+                
+                const result = await response.json();
+                
+                await simulateProcessing('Updating website...', 80);
+                await simulateProcessing('Finalizing...', 100);
+                
+                if (result.success) {
+                    // Success message
+                    statusArea.className = 'status-area success';
+                    statusMessage.innerHTML = `
+                        <strong>Success!</strong> The article "${selectedFile.name}" has been processed and added to the website.
+                        <p>The following pages have been updated:</p>
+                        <ul>
+                            <li>Home page - Latest news section</li>
+                            <li>News listing page</li>
+                            <li>New article page created: news/${result.article.slug}.html</li>
+                        </ul>
+                    `;
+                } else {
+                    throw new Error(result.error || 'Unknown error occurred');
+                }
+                
+                statusArea.style.display = 'block';
+                
+                // Reset form
+                resetForm();
+                
+                // Refresh file list
+                loadRecentFiles();
+                
+            } catch (error) {
+                statusArea.className = 'status-area error';
+                statusMessage.innerHTML = `
+                    <strong>Error!</strong> ${error.message}
+                `;
+                statusArea.style.display = 'block';
+            } finally {
+                progressArea.style.display = 'none';
+                processBtn.disabled = false;
+                previewBtn.disabled = false;
+            }
+        });
+        
+        // Simulate processing steps
+        function simulateProcessing(status, progressPercent) {
+            return new Promise(resolve => {
+                progressStatus.textContent = status;
+                progressBar.style.width = `${progressPercent}%`;
+                setTimeout(resolve, 500);
+            });
+        }
+        
+        // Reset the form after processing
+        function resetForm() {
+            selectedFile = null;
+            fileInput.value = '';
+            fileDetails.style.display = 'none';
+            previewArea.style.display = 'none';
+        }
+        
+        // Load recent files from the News_Articles folder
+        async function loadRecentFiles() {
+            try {
+                const response = await fetch('/api/articles');
+                const data = await response.json();
+                
+                let html = '';
+                if (!data.articles || data.articles.length === 0) {
+                    html = '<div class="file-list-item"><span class="file-name">No files found</span></div>';
+                } else {
+                    data.articles.forEach(file => {
+                        html += `
+                            <div class="file-list-item">
+                                <span class="file-name">${file.name}</span>
+                                <span class="file-date">${file.date}</span>
+                            </div>
+                        `;
+                    });
+                }
+                
+                fileListContent.innerHTML = html;
+            } catch (error) {
+                console.error('Error loading files:', error);
+                fileListContent.innerHTML = '<div class="file-list-item"><span class="file-name">Error loading files</span></div>';
+            }
+        }
+        
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            loadRecentFiles();
+        });
+    </script>
+</body>
+</html> 

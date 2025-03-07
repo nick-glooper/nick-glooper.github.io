@@ -1,0 +1,44 @@
+Title: # ALERT: £1bn Public Contract Chaos as ISG Collapses - New Procurement Act's FVRA Framework Could Prevent Your Next Supplier Disaster
+
+Summary: ISG's sudden collapse in September 2024 left £1 billion in public contracts stranded and 2,200 workers jobless. The new Procurement Act 2023, implemented February 2025, introduces enhanced Economic and Financial Standing (EFS) requirements that could have flagged ISG's deteriorating position. Through Financial and Value-for-Money Risk Assessments (FVRA), authorities can now utilize forward-looking metrics like Cash Flow to Debt Service Ratio alongside mandatory KPIs. By implementing comprehensive supply chain risk analysis and continuous financial monitoring, government bodies can better protect essential services and public funds from devastating supplier failures.
+
+Article: ## Billion-Pound Bombshell: The ISG Collapse
+
+The collapse of construction giant ISG in September 2024 sent shockwaves through the UK public sector. With over £1 billion in public contracts left hanging and 2,200 workers suddenly unemployed, this catastrophic supplier failure raises urgent questions about how contracting authorities assess financial stability in their critical suppliers. The new Procurement Act 2023, which came into force in February 2025, introduces several measures that might have helped public sector clients identify ISG's troubles before they escalated to crisis point.
+
+## Red Flags Ignored: The Financial Assessment Failure
+
+ISG's collapse, like many corporate failures, presented warning signs that went unnoticed or unaddressed. The construction sector has historically operated on thin margins with significant cash flow challenges, making rigorous financial assessment particularly crucial. Under the previous procurement regime, financial evaluations often focused narrowly on backward-looking metrics and minimum turnover requirements, potentially missing forward-looking indicators of distress.
+
+The Procurement Act 2023 introduces a more robust framework for assessing suppliers' Economic and Financial Standing (EFS). Section 58 of the Act explicitly permits contracting authorities to exclude suppliers who fail to meet specified EFS requirements, providing a clearer legal basis for thorough financial scrutiny. Additionally, the Act's emphasis on transparency enables authorities to request more comprehensive financial information during both the selection process and contract management phases.
+
+## Money Trail: How FVRA Could Have Spotted Trouble
+
+One concrete measure that might have flagged ISG's deteriorating position is implementing a comprehensive Financial and Value-for-Money Risk Assessment (FVRA) with requirements to regularly monitor the Cash Flow to Debt Service Ratio during contract delivery. This ratio measures a company's ability to cover its debt obligations with its operating cash flow and would have been particularly relevant for ISG given construction firms' typical reliance on debt financing.
+
+A robust FVRA under the new Procurement Act could have included a contractual requirement for ISG to maintain a CFDSR above 1.5 and to report on this metric quarterly. A falling ratio approaching 1.0 would have indicated that the company was generating just enough cash to meet its debt obligations—a precarious position. Had this been monitored, public sector clients might have observed a declining trend in ISG's CFDSR in the months preceding its collapse, prompting earlier intervention or contingency planning.
+
+## Beyond Numbers: Enhanced Supply Chain Risk Analysis
+
+The new Procurement Act's requirement for public authorities to set and publish a minimum of three KPIs for contracts valued at £5m or more creates additional transparency around supplier performance. By including financial stability metrics among these KPIs, clients establish a formal mechanism for regular assessment of supplier financial health as part of a comprehensive Supply Chain Risk Analysis.
+
+Furthermore, the Act's mandatory 30-day payment terms provisions serve as another early warning system. Delays in paying subcontractors often indicate cash flow problems at main contractors. By monitoring compliance with these payment terms, authorities can detect financial difficulties as suppliers begin stretching payments to preserve cash.
+
+## Building Resilience: Continuous Financial Monitoring
+
+The FVRA approach under the new Procurement Act enables a shift from point-in-time financial assessments to continuous monitoring throughout the contract lifecycle. This approach recognizes that supplier financial health can deteriorate rapidly, particularly in challenging economic conditions or high-risk sectors like construction.
+
+Contracting authorities should consider implementing automated financial monitoring systems that track key indicators like changes in credit ratings, fluctuations in liquidity ratios, unexpected management changes, and delays in financial reporting. By establishing financial performance thresholds within contracts, authorities can trigger earlier reviews when warning signs appear, potentially allowing for remedial action before complete supplier failure occurs.
+
+## Lessons Learned: Implementing FVRA Effectively
+
+The ISG collapse demonstrates the critical importance of rigorous and ongoing financial assessment of key suppliers. While the Procurement Act 2023 came too late to prevent this particular failure, its provisions offer contracting authorities powerful new tools to identify supplier financial instability before it reaches crisis point.
+
+By implementing comprehensive Economic and Financial Standing assessments through properly structured FVRA—particularly focusing on forward-looking metrics like the Cash Flow to Debt Service Ratio—public sector organisations can better protect critical services and public funds from the devastating impact of major supplier failures.
+
+## How husian Can Transform Your Supply Chain Risk Analysis
+
+husian leverages a range of AI tools to make information gathering and data analysis more efficient for Supply Chain Risk Analysis. Currently, husian uses tools like RiskTrace, Perplexity, and Claude Sonnet alongside other freely available AI resources such as Tableau Public for data visualization, Elicit for research synthesis, Looker Studio for interactive dashboards, and Google Colab for custom analysis.
+
+Rather than expensive proprietary systems, husian prioritizes cost-effectiveness by utilizing Open Source Intelligence (OSINT) tools to gather and analyze publicly available information scattered across the internet. This approach allows for comprehensive supply chain risk assessments at a fraction of traditional costs, making robust financial monitoring accessible to contracting authorities of all sizes. While a dedicated platform is in development, husian's current methodology provides rapid, actionable insights that help public sector clients identify financial red flags before they escalate to crisis level—exactly the kind of early warning system that might have prevented the ISG disaster.
+

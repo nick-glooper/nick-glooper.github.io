@@ -52,38 +52,12 @@ header {
     align-items: center;
     text-decoration: none;
     position: relative;
-    height: 38px; /* Match the height of the logo circle */
+    height: 38px; /* Match the height of the logo */
 }
 
-.logo-circle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 38px;
+.logo-image {
     height: 38px;
-    border: 2px solid var(--text-primary);
-    border-radius: 50%;
-    margin-right: 12px;
-    position: relative;
-}
-
-.logo-letter {
-    font-family: 'Roboto Slab', serif;
-    font-weight: 900;
-    font-size: 19.8px;
-    color: var(--text-primary);
-    position: absolute;
-    left: 52.5%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    margin-left: -1px;
-    margin-top: 1px;
-}
-
-.logo-text {
-    font-size: 29px;
-    font-weight: 700;
-    color: var(--text-primary);
+    width: auto;
 }
 
 nav {
@@ -433,20 +407,60 @@ p {
         font-size: 2rem; /* 32px */
     }
 
-    .logo-text {
-        font-size: 24px;
-    }
-    
-    .logo-circle {
-        width: 34px;
+    .logo-image {
         height: 34px;
     }
     
-    .logo-letter {
-        font-size: 17px;
-        margin-left: -1px;
-        margin-top: 1px;
-        left: 52.5%; /* Adjusted from 55% to 52.5% */
+    nav {
+        height: 34px;
+    }
+    
+    .mobile-menu-toggle {
+        height: 34px;
+    }
+    
+    nav ul {
+        top: 60px;
+    }
+
+    h1 {
+        font-size: 36px;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
+
+    .lead {
+        font-size: 18px;
+    }
+
+    .hero {
+        padding: 60px 0;
+    }
+
+    section {
+        padding: 60px 0;
+    }
+
+    .footer-content {
+        gap: 30px 20px; /* Reduce gap on smallest screens */
+    }
+    
+    .footer-col {
+        flex: 1 0 100%;
+        max-width: 100%; /* Full width on smallest screens */
+    }
+    
+    .footer-tagline {
+        text-align: left;
+        padding-bottom: 20px;
+        margin-bottom: 30px;
+        font-size: 0.8125rem; /* Adjusted mobile font size for better readability */
+    }
+    
+    .tagline-brand {
+        font-size: 0.9375rem; /* Adjusted mobile font size for better readability */
     }
 }
 
@@ -901,28 +915,12 @@ footer {
         padding: 15px 0;
     }
 
-    .logo {
-        height: 34px; /* Match the reduced logo circle size */
-    }
-
-    .logo-text {
-        font-size: 24px;
-    }
-    
-    .logo-circle {
-        width: 34px;
+    .logo-image {
         height: 34px;
     }
-    
-    .logo-letter {
-        font-size: 17px;
-        margin-left: -1px;
-        margin-top: 1px;
-        left: 52.5%; /* Adjusted from 55% to 52.5% */
-    }
-    
+
     nav {
-        height: 34px; /* Match the reduced logo height */
+        height: 34px;
     }
     
     .mobile-menu-toggle {
@@ -2018,4 +2016,7 @@ section {
     width: 48px;
     height: 48px;
     margin-bottom: 16px;
-} 
+}
+
+/* Import Article Styles */
+@import 'article-styles.css'; 
