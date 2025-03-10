@@ -728,7 +728,7 @@ footer {
 
 .footer-tagline {
     color: var(--text-secondary);
-    font-size: 0.875rem; /* Increased from 0.75rem (12px) to 0.875rem (14px) */
+    font-size: 1.05rem; /* Increased by 20% from 0.875rem (14px) to 1.05rem (16.8px) */
     margin-bottom: 2.5rem;
     padding-bottom: 1.875rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -1745,7 +1745,7 @@ li {
 /* Footer text */
 .footer-tagline {
     color: var(--text-secondary);
-    font-size: 0.875rem; /* Increased from 0.75rem (12px) to 0.875rem (14px) */
+    font-size: 1.05rem; /* Increased by 20% from 0.875rem (14px) to 1.05rem (16.8px) */
     margin-bottom: 2.5rem;
     padding-bottom: 1.875rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
